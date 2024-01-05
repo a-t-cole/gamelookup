@@ -1,5 +1,8 @@
 <div *ngFor="let d of data | async">
     {{d.barcode}}    
-
 </div>
+<h1> lookup component</h1>
 <button type="button" (click)="post()">Ask Service</button>
+<div>
+    {{data|json}}
+</div>

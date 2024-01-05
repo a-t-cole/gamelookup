@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { GameUpcValue } from '../models/gameupc.models';
-import { Observable, of, pipe, shareReplay, tap } from 'rxjs';
+import { Observable, map, of, pipe, shareReplay, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -9,17 +9,18 @@ import { HttpClient } from '@angular/common/http';
 export class LookupService {
 
   constructor(private http: HttpClient) { 
-    this.localData$ = this.http.get<GameUpcValue[]>('assets/gameupc.json').pipe(shareReplay(1));
+    this.localData$ = this.http.get<GameUpcValue[]>('assets/gameupc.json');
   }
   private localData$:Observable<GameUpcValue[]>;  
   public lookupBarcode(barcode: string): Observable<GameUpcValue[]> {
     
-    return this.localData$.pipe(
-      tap(x => {
-        console.log(`Found ${x.length} `); 
-        return x.find(y => y.barcode === barcode); 
+    const filtered$ =  this.localData$.pipe(
+      map(entries => {
+        console.log(entries.length)
+        return entries.filter(x => x.barcode === barcode);
       })
-    )
+    ); 
+    return filtered$; 
   }
 
 }

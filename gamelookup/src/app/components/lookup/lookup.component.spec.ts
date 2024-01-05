@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LookupComponent } from './lookup.component';
+import { HttpClientTestingModule, provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideHttpClient } from '@angular/common/http';
 
 describe('LookupComponent', () => {
   let component: LookupComponent;
@@ -8,7 +10,8 @@ describe('LookupComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LookupComponent]
+      imports: [LookupComponent], 
+      providers:[provideHttpClient(), provideHttpClientTesting()]
     })
     .compileComponents();
     
