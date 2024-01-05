@@ -12,10 +12,10 @@ import { Observable, of } from 'rxjs';
   styleUrl: './lookup.component.scss'
 })
 export class LookupComponent {
-  public data: Observable<GameUpcValue[]> = of([]); 
+  public data: GameUpcValue[] = []; 
   constructor(private lookupSvc: LookupService){
   }
-  post(){
-    this.data = this.lookupSvc.lookupBarcode('0627843375623');
+  async post(){
+    this.data = await this.lookupSvc.lookupBarcode('0627843375623'); 
   }
 }
