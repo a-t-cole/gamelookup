@@ -1,8 +1,16 @@
 <!-- <div *ngFor="let d of data | async">
     {{d.barcode}}    
 </div> -->
-<h1> lookup component</h1>
-<button type="button" (click)="post()">Ask Service</button>
-<div>
-    {{data|json}}
-</div>
+<mat-card>
+    <mat-card-header>
+       <h1>Lookup Component</h1>
+    </mat-card-header>
+    <mat-card-content>
+        <div>  
+            <button (click)="post()" mat-raised-button color="primary">Ask Service</button>
+        </div>
+        <div>
+            {{data|json}}
+        </div>
+    </mat-card-content>
+</mat-card>
