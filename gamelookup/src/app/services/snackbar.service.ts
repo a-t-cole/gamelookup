@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { SnackbarEvent } from '../models/snackbar.models';
+import { SnackbarEvent, SnackbarType } from '../models/snackbar.models';
 
 @Injectable({
   providedIn: 'root'
@@ -15,5 +15,11 @@ export class SnackbarService {
       return; 
     }
     this.SnackbarEventBus.emit(new SnackbarEvent(message)); 
+   }
+   public showError(message: string){
+    if(!message){
+      return; 
+    }
+    this.SnackbarEventBus.emit(new SnackbarEvent(message, SnackbarType.Error)); 
    }
 }

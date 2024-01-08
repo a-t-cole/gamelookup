@@ -1,0 +1,11 @@
+<div>
+
+</div>
+<ng-container *ngIf="data && data.Items">
+    <ng-container *ngFor="let i of data.Items">
+        <mat-card matRipple>{{i[data.DisplayKey]}}</mat-card>
+    </ng-container>
+</ng-container>
+<div>
+    <button mat-raised-button color="primary">Select</button>
+</div>
