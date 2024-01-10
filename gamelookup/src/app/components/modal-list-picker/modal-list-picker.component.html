@@ -1,11 +1,13 @@
-<div>
-
-</div>
-<ng-container *ngIf="data && data.Items">
-    <ng-container *ngFor="let i of data.Items">
-        <mat-card matRipple>{{i[data.DisplayKey]}}</mat-card>
-    </ng-container>
-</ng-container>
-<div>
-    <button mat-raised-button color="primary">Select</button>
+<div class="m-8">
+    <div class="flex-col items-end justify-center">
+        <div><h1>Possible Hits</h1></div>
+        <div class="grow" *ngIf="data && data.Items">
+            <ng-container *ngFor="let i of data.Items">
+                <mat-card matRipple>{{i[data.DisplayKey]}}</mat-card>
+            </ng-container>
+        </div>
+    
+        <button mat-raised-button color="primary" class="w-full">Select</button>
+    
+    </div>
 </div>
