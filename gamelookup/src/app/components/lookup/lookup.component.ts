@@ -22,9 +22,11 @@ export class LookupComponent {
   public selected: GameUpcValue | undefined;
   constructor(private lookupSvc: LookupService, private snackbarSvc: SnackbarService, public dialog: MatDialog){
   }
-  async post(){
-    const d = await this.lookupSvc.lookupBarcode('0627843375623');
-    if(d.length == 1){
+  async post(barcode: string){
+    const d = await this.lookupSvc.lookupBarcode(barcode);
+    if(d.length == 0){
+      this.snackbarSvc.showBar(`Nothing found for barcode: ${barcode}`);
+    }else if(d.length == 1){
       this.selected = d[0];
     }else{
       this.openDialog(d);

@@ -11,7 +11,7 @@ describe('GamelookupItemComponent', () => {
       imports: [GamelookupItemComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(GamelookupItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
