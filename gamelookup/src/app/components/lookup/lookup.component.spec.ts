@@ -1,9 +1,8 @@
 import { ComponentFixture, TestBed, fakeAsync, flush } from '@angular/core/testing';
 
 import { LookupComponent } from './lookup.component';
-import { HttpClientTestingModule, provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideHttpClient } from '@angular/common/http';
-import { of } from 'rxjs';
 import {MatDialogRef} from "@angular/material/dialog";
 import {GameUpcValue} from "../../models/gameupc.models";
 

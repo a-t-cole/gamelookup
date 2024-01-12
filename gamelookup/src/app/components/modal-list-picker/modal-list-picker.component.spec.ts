@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ModalListPickerComponent } from './modal-list-picker.component';
-import {MatDialogModule, MatDialogRef} from "@angular/material/dialog";
+import {MatDialogModule} from "@angular/material/dialog";
 
 describe('ModalListPickerComponent', () => {
   let component: ModalListPickerComponent;
