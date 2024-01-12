@@ -32,9 +32,9 @@ module.exports = function (config) {
         { type: 'text-summary' }
       ]
     },
-    reporters: ['progress', 'kjhtml'],
+    reporters: ['progress', 'kjhtml', 'coverage'],
     browsers: ['ChromeHeadless'],
-    restartOnFileChange: false, 
+    restartOnFileChange: false,
     singleRun: true
   });
 };
