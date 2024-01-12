@@ -6,11 +6,12 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatRippleModule } from '@angular/material/core';
+import { ModalListPickerItemComponent } from '../modal-list-picker-item/modal-list-picker-item.component';
 
 @Component({
   selector: 'app-modal-list-picker',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatCardModule, MatRippleModule],
+  imports: [CommonModule, MatButtonModule, MatRippleModule, ModalListPickerItemComponent],
   templateUrl: './modal-list-picker.component.html',
   styleUrl: './modal-list-picker.component.scss'
 })

@@ -3,9 +3,9 @@
 </div>
 <ng-container *ngIf="data && data.Items">
     <ng-container *ngFor="let i of data.Items">
-        <mat-card matRipple>{{i[data.DisplayKey]}}</mat-card>
+        <app-modal-list-picker-item [primaryText]="i[data.DisplayKey]"></app-modal-list-picker-item>
     </ng-container>
 </ng-container>
-<div>
-    <button mat-raised-button color="primary">Select</button>
+<div class="w-100 mx-auto">
+    <button mat-raised-button color="primary" class="w-80">Select</button>
 </div>
