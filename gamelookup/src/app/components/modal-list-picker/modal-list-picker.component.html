@@ -1,11 +1,11 @@
-<div>
-
-</div>
-<ng-container *ngIf="data && data.Items">
-    <ng-container *ngFor="let i of data.Items">
-        <app-modal-list-picker-item [primaryText]="i[data.DisplayKey]"></app-modal-list-picker-item>
-    </ng-container>
-</ng-container>
-<div class="w-100 mx-auto">
-    <button mat-raised-button color="primary" class="w-80">Select</button>
-</div>
+<h1 mat-dialog-title>title</h1>
+<mat-dialog-content>
+          <ng-container *ngIf="data && data.Items">
+              <ng-container *ngFor="let i of data.Items">
+                  <app-modal-list-picker-item [primaryText]="i[data.DisplayKey]" [isChecked]="data.Selected == i" (selected)="itemClicked(i)"></app-modal-list-picker-item>
+              </ng-container>
+          </ng-container>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button [mat-dialog-close]="data" color="primary" class="btn btn-lg btn-block mx-auto w-75" >Select</button>
+</mat-dialog-actions>

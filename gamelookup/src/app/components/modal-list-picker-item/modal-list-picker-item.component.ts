@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-modal-list-picker-item',
@@ -10,13 +10,14 @@ import { Component, Input } from '@angular/core';
 })
 export class ModalListPickerItemComponent {
   @Input()
-  primaryText!: string; 
+  primaryText!: string;
   @Input()
   secondaryText: string = '';
-
-  public isChecked: boolean = true;
+  @Input() isChecked: boolean = false;
+  @Output() selected: EventEmitter<any> = new EventEmitter<any>();
 
   onClick(){
     this.isChecked = !this.isChecked
+    this.selected.emit(this.isChecked);
   }
 }

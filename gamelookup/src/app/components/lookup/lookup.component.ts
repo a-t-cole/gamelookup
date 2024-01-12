@@ -18,24 +18,27 @@ import { ModalListPickerData } from '../../models/dialog.models';
   styleUrl: './lookup.component.scss'
 })
 export class LookupComponent {
-  public data: GameUpcValue[] = []; 
+  public data: GameUpcValue[] = [];
+  public selected: GameUpcValue | undefined;
   constructor(private lookupSvc: LookupService, private snackbarSvc: SnackbarService, public dialog: MatDialog){
   }
   async post(){
-    this.data = await this.lookupSvc.lookupBarcode('0627843375623'); 
-    this.snackbarSvc.showBar(`Found ${this.data.length} entries`); 
-    this.openDialog(this.data);
+    const d = await this.lookupSvc.lookupBarcode('0627843375623');
+    if(d.length == 1){
+      this.selected = d[0];
+    }else{
+      this.openDialog(d);
+    }
   }
   openDialog(items: GameUpcValue[]): void{
     const dialogRef = this.dialog.open(ModalListPickerComponent, {
       width: '90%',
-      height: '90%',
-      data: {Items: items, DisplayKey: 'name'} as ModalListPickerData
+      data: {Items: items, DisplayKey: 'name'} as ModalListPickerData<GameUpcValue>
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      
+      this.snackbarSvc.showBar(`Selected ${result.Selected.name ?? 'none'}`)
+      this.selected = result.Selected;
     });
   }
 }
