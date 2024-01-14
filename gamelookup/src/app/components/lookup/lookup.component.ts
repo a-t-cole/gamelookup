@@ -9,11 +9,12 @@ import { GamelookupItemComponent } from '../gamelookup-item/gamelookup-item.comp
 import {MatDialog} from '@angular/material/dialog';
 import { ModalListPickerComponent } from '../modal-list-picker/modal-list-picker.component';
 import { ModalListPickerData } from '../../models/dialog.models';
+import { ScanhandlerComponent } from '../scanhandler/scanhandler.component';
 
 @Component({
   selector: 'app-lookup',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatCardModule, GamelookupItemComponent,ModalListPickerComponent],
+  imports: [CommonModule, MatButtonModule, MatCardModule, GamelookupItemComponent,ModalListPickerComponent, ScanhandlerComponent],
   templateUrl: './lookup.component.html',
   styleUrl: './lookup.component.scss'
 })

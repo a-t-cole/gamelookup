@@ -11,6 +11,6 @@ import { MatCardModule } from '@angular/material/card';
 })
 export class GamelookupItemComponent {
   @Input()
-  item!: GameUpcValue; 
+  item: GameUpcValue | undefined; 
   
 }
