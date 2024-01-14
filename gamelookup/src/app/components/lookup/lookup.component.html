@@ -1,0 +1,17 @@
+
+<mat-card>
+    <mat-card-header>
+       <h1>Lookup Component</h1>
+    </mat-card-header>
+    <mat-card-content>
+        <div>
+            <app-scanhandler (ScannedItem)="post($event)"></app-scanhandler>
+        </div>
+        <div>
+            <button (click)="post('')" mat-raised-button color="primary">Ask Service</button>
+        </div>
+        <ng-container *ngIf="selected">
+          <app-gamelookup-item [item]="selected"></app-gamelookup-item>
+        </ng-container>
+    </mat-card-content>
+</mat-card>
