@@ -7,5 +7,9 @@ export const routes: Routes = [
     {
         path: 'lookup',
         loadComponent: ()=> import('./components/lookup/lookup.component').then(_ => _.LookupComponent)
+    },
+    {
+        path: 'bggsearch',
+        loadComponent: ()=> import('./components/bgg-search/bgg-search.component').then(_ => _.BggSearchComponent)
     }
 ];

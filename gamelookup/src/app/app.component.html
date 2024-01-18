@@ -1,6 +1,6 @@
-<div class="header">
-  <div class="nav-item">
-    <a routerLink="lookup">Lookup</a>
-  </div>
-</div>
+<nav mat-tab-nav-bar [tabPanel]="tabPanel">
+  <a mat-tab-link [routerLink]="['/lookup']">By Barcode</a>
+  <a mat-tab-link [routerLink]="['/bggsearch']">BGG Search</a>
+</nav>
+<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
 <router-outlet></router-outlet>

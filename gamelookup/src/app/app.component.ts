@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { SnackbarService } from './services/snackbar.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { SnackbarEvent } from './models/snackbar.models';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, MatTabsModule, RouterModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss', 
   providers:[]
