@@ -1,1 +1,9 @@
-<p>bgg-search works!</p>
+<div class="d-flex flex-column">
+    <app-scanhandler (ScannedItem)="searchBgg($event)"></app-scanhandler>
+    <h1>
+        Selected
+    </h1>
+    <div>
+        {{selected}}
+    </div>
+</div>

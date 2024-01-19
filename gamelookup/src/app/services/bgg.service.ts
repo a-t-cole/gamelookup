@@ -13,6 +13,12 @@ export class BggService {
   }
   async searchItemsByTerm(term: string): Promise<any[]>{
     const params = {query: term,  type: 'boardgame'} as BggSearchParams; 
-    return (await getBggSearch( params )).item; 
+    try{
+      var response = (await getBggSearch( params )); 
+      return response.item; 
+    }catch (e){
+      console.log(e); 
+      return []; 
+    }
   }
 }

@@ -1,5 +1,5 @@
 <div class="d-flex flex-row m-2">
-    <input type="text" name="scannedInput" [ngModel]="scannedText" class="flex-grow-1 textbox"/>  
+    <input type="text" name="scannedInput" [ngModel]="scannedText" class="flex-grow-1 textbox" (focus)="onFocus()" (blur)="onBlur()" id="scanBox"/>  
     <button mat-mini-fab matTooltip="Primary" color="primary" class="flex-shrink-1" (click)="manualSearch()">
         <i class="fad fa-search"></i>
       </button>
