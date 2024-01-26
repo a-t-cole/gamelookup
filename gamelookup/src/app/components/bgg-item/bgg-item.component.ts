@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { BggSearchItemDto } from 'boardgamegeekclient/dist/esm/dto/concrete/subdto';
 
 @Component({
   selector: 'app-bgg-item',
@@ -8,5 +9,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './bgg-item.component.scss'
 })
 export class BggItemComponent {
-  @Input() bggItem!: any
+  @Input() item!: BggSearchItemDto
 }

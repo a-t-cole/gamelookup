@@ -1,21 +1,22 @@
 import { Injectable } from '@angular/core';
-import { BggSearchParams, BggThingResponse, getBggSearch, getBggThing, SearchType } from 'bgg-xml-api-client'
+import { BggClient } from 'boardgamegeekclient';
+import { BggSearchDto, BggThingDto } from 'boardgamegeekclient/dist/esm/dto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BggService {
 
+  private bggClient: BggClient = BggClient.Create(); 
   constructor() { }
 
-  async getItemById(id: string): Promise<BggThingResponse>{
-    return await getBggThing({id: id})
+  async getItemById(id: number): Promise<BggThingDto[]>{
+    return await this.bggClient.thing.query({id: id})
   }
-  async searchItemsByTerm(term: string): Promise<any[]>{
-    const params = {query: term,  type: 'boardgame'} as BggSearchParams; 
+  async searchItemsByTerm(term: string): Promise<BggSearchDto[]>{
     try{
-      var response = (await getBggSearch( params )); 
-      return response.item; 
+      const result:BggSearchDto[] = await this.bggClient.search.query({query:term, type: 'boardgame'}) 
+      return result
     }catch (e){
       console.log(e); 
       return []; 
